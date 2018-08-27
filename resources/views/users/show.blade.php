@@ -7,7 +7,7 @@
     <div class="row">
 
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs user-info">
-            <div class="panel panel-default">
+            <div class="panel pa10_12_000000_create_users_table.phpnel-default">
                 <div class="panel-body">
                     <div class="media">
                         <div align="center">
@@ -16,10 +16,10 @@
                         <div class="media-body">
                             <hr>
                             <h4><strong>个人简介</strong></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <p>{{ $user->introduction }}</p>
                             <hr>
                             <h4><strong>注册于</strong></h4>
-                            <p>January 01 1901</p>
+                            <p>{{ $user->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
                 </div>
