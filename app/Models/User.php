@@ -12,11 +12,11 @@ class User extends Authenticatable
 
     /**
      * The attributes that are mass assignable.
-     *
+     *edit.blade.php
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','introduction',
+        'name', 'email', 'password','introduction','avatar'
     ];
 
     /**
