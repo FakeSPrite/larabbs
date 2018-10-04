@@ -61,7 +61,7 @@ class TopicsController extends Controller
 		$this->authorize('update', $topic);
 		$topic->update($request->all());
 
-		return redirect()->to($topic->link())->with('success', 'Updated successfully.');
+		return redirect()->to($topic->link())->witholicies/ReplyPolicy.php('success', 'Updated successfully.');
 	}
 
 	public function destroy(Topic $topic)
