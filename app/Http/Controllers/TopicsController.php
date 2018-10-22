@@ -11,6 +11,8 @@ use Auth;
 use App\Handlers\ImageUploadHandler;
 use App\Models\User;
 
+use App\Models\Link;
+
 
 class TopicsController extends Controller
 {
