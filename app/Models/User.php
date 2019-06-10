@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
+use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 
-class User extends Authenticatable implements MustVerifyEmailContract
+
+
+class User extends Authenticatable implements MustVerifyEmailContract, JWTSubject
 {
     use HasRoles;
     use MustVerifyEmailTrait;
@@ -34,9 +37,10 @@ class User extends Authenticatable implements MustVerifyEmailContract
         $this->laravelNotify($instance);
     }
 
-    protected $fillable = [
-        'name', 'phone', 'email', 'password', 'introduction', 'avatar',
-    ];
+	protected $fillable = [
+		'name', 'phone', 'email', 'password', 'introduction', 'avatar',
+		'weixin_openid', 'weixin_unionid'
+	];
 
     protected $hidden = [
         'password', 'remember_token',
@@ -87,4 +91,13 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
         $this->attributes['avatar'] = $path;
     }
+	public function getJWTIdentifier()
+	{
+		return $this->getKey();
+	}
+
+	public function getJWTCustomClaims()
+	{
+		return [];
+	}
 }
