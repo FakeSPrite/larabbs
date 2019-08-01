@@ -11,5 +11,11 @@
       <user-name>homestead</user-name>
       <introspection-schemas>*:larabbs</introspection-schemas>
     </data-source>
+    <data-source name="@localhost" uuid="20e55404-31df-4e7e-a655-2f9ea61be03c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <introspection-schemas>*:</introspection-schemas>
+    </data-source>
   </component>
 </project>
